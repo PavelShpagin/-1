@@ -6,6 +6,11 @@ template <typename T>
 FileData<T> readFileData(const std::string &fileName)
 {
     std::ifstream file(fileName);
+    if (file.peek() == std::ifstream::traits_type::eof())
+    {
+        throw std::runtime_error("File with data is empty.");
+    }
+
     if (!file.is_open())
     {
         throw std::runtime_error("Unable to open file with data.");
