@@ -4,7 +4,7 @@
 #include "readFileData.cpp"
 #include "writeResultToFile.cpp"
 
-int main()
+int main()  
 {
     FileData<double> fileData = readFileData<double>("data.txt");
 

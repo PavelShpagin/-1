@@ -24,7 +24,7 @@ std::vector<std::pair<T, T>> FuncObj<T>::operator()()
 {
     generatedCoords.push_back(initialPoint);
 
-    for (int i = 0; i < n; ++i)
+    for (int i = 1; i < n; ++i)
     {
         auto &base_coord = generate();
         auto &previousCoord = generatedCoords[generatedCoords.size() - 1];
