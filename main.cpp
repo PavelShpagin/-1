@@ -12,13 +12,12 @@ int main()
     std::pair initialPoint = fileData.initialPoint;
     std::vector<std::pair<double, double>> baseCoords = fileData.baseCoords;
 
-    FuncObj<double> obj(std::vector<std::pair<double, double>>({{1, 2.}, {-1.2, 5.1}}));
-    auto coord1 = obj(std::pair<double, double>{5., -7.});
-    auto coord2 = obj(std::pair<double, double>{5., -7.});
-    auto coord3 = obj(std::pair<double, double>{5., -7.});
-    for (auto coord : {coord1, coord2, coord3})
+    FuncObj<double> obj(baseCoords, n, initialPoint);
+
+    for (const auto &coord : obj())
     {
-        printf("%.2f, %.2f\n", coord.first, coord.second);
+        std::cout << coord.first << " " << coord.second << std::endl;
+        writeResultToFile("result.txt", std::to_string(coord.first) + " " + std::to_string(coord.second));
     }
 
     return 0;
